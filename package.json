@@ -1,0 +1,41 @@
+{
+  "name": "badboy",
+  "version": "1.0.0",
+  "description": "Crawl apps from Google Play & iTunes",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "./run_tests.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/naughtyspirit/badboy"
+  },
+  "keywords": [
+    "google",
+    "play",
+    "ios",
+    "crawl",
+    "apps",
+    "mobile",
+    "apps",
+    "itunes"
+  ],
+  "author": "NaughtySpirit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/naughtyspirit/badboy/issues"
+  },
+  "homepage": "https://github.com/naughtyspirit/badboy",
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "co-mocha": "^1.1.0",
+    "mocha": "^2.1.0"
+  },
+  "dependencies": {
+    "bluebird": "^2.8.2",
+    "cheerio": "^0.18.0",
+    "co": "^4.1.0",
+    "request-promise": "^0.3.3",
+    "underscore": "^1.7.0"
+  }
+}
