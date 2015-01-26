@@ -1,9 +1,11 @@
 var Request = require('request-promise')
+var config = require('./config')
 
 var iTunesParser = function() {
 }
 
-iTunesParser.prototype.parse = function* (url) {
+iTunesParser.prototype.parse = function* (appId) {
+    var url = config.iTunesUrl + appId
     var options = {
         uri: url,
         method: "GET"

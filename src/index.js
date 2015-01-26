@@ -8,7 +8,7 @@ function* getAndroidApp(appPackage) {
 
 function* getiOSApp(appId) {
     var parser = new iTunesParser()
-    return yield parser.parse(appPackage)
+    return yield parser.parse(appId)
 }
 
 module.exports.parseAndroidApp = parseAndroidApp
