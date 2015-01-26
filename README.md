@@ -8,7 +8,7 @@ Crawl apps from Google Play &amp; iTunes
 ```javascript
 
 var Badboy = require('badboy')
-var app = yield Badboy.getAndroidApp("com.example.myapp")
+var app = yield Badboy.getAndroidApp("Android app package here")
 
 ```
 
@@ -17,6 +17,6 @@ var app = yield Badboy.getAndroidApp("com.example.myapp")
 ```javascript
 
 var Badboy = require('badboy')
-var app = yield Badboy.getiOSApp("289372198")
+var app = yield Badboy.getiOSApp("iTunes app id here")
 
 ```
