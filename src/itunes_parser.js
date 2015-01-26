@@ -12,7 +12,7 @@ iTunesParser.prototype.parse = function* (appId) {
     }
     var response = yield Request(options)
     var app = this.parseJSON(JSON.parse(response))
-    app.url = url
+    app.url = config.appStoreUrl + appId
     return app
 }
 
