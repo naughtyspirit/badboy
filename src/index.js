@@ -11,4 +11,5 @@ function* getiOSApp(appId) {
     return yield parser.parse(appId)
 }
 
-module.exports.parseAndroidApp = parseAndroidApp
+module.exports.getAndroidApp = getAndroidApp
+module.exports.getiOSApp = getiOSApp
