@@ -14,6 +14,10 @@ describe("GooglePlayParser", function() {
             description: "description",
             package: "com.yodo1.crossyroad",
             isFree: true,
+            developer: {
+                name: "Yodo1 Games",
+                email: "gpsupport@yodo1.com"
+            }
         }
         var appHtml = Fs.readFileSync('test/data/android_app_source.html').toString()
         global.app = new GooglePlayParser().parseHtml(appHtml)
@@ -37,6 +41,14 @@ describe("GooglePlayParser", function() {
 
     it("should parse pricing", function*() {
        app.isFree.should.eql(testApp.isFree) 
+    })
+
+    it("should parse developer name", function*() {
+       app.developer.name.should.eql(testApp.developer.name) 
+    })
+
+    it("should parse developer email", function*() {
+       app.developer.email.should.eql(testApp.developer.email) 
     })
 
 })

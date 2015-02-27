@@ -19,13 +19,23 @@ GooglePlayParser.prototype.parse = function* (appPackage) {
 
 GooglePlayParser.prototype.parseHtml = function(appHtml) {
     var $ = Cheerio.load(appHtml)
+    var developer = {
+        name: $('.document-subtitle.primary span').html()
+    }
+    $('.dev-link').each(function(i, item) {
+        var href = $(item).attr('href');
+        if (href && href.indexOf('mailto:') > -1) {
+            developer.email = href.substr(7);
+        }
+    })
     return {
         name: $('div .document-title').text().trim(),
         categories : [$('.category').text().trim()],
         icon : $('.cover-image').attr('src'),
         isFree: $('.price.buy.id-track-click span').text().trim() == "Install",
         package: $('.details-wrapper.apps').attr('data-docid'),
-        description : $('.id-app-orig-desc').html()
+        description : $('.id-app-orig-desc').html(),
+        developer: developer 
     }
 }
 module.exports = GooglePlayParser
