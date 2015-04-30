@@ -60,6 +60,7 @@ GooglePlayParser.prototype.parseHtml = function(appHtml) {
         icon : $('.cover-image').attr('src'),
         isFree: $('.price.buy.id-track-click span').text().trim() == "Install",
         package: $('.details-wrapper.apps').attr('data-docid'),
+        publicationDate: $('div[itemprop="datePublished"]').text().trim(),
         description : $('.id-app-orig-desc').html(),
         installs: $('div[itemprop="numDownloads"]').text().replace(/\s+/g, ''),
         contentRating: $('div[itemprop="contentRating"]').text().trim(),

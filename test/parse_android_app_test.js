@@ -11,6 +11,7 @@ describe("GooglePlayParser", function() {
             icon: "https://lh3.ggpht.com/KFReqMK_igefRt9h5Ywy1JfHk9Q3AvB1-6hY1TFWCBWAPjBCDzSp8kWXjy3-ANc_l_2f=w300-rw",
             url: "link",
             categories: ["Action"],
+            publicationDate: "January 14, 2015",
             description: "description",
             package: "com.yodo1.crossyroad",
             isFree: true,
@@ -92,6 +93,10 @@ describe("GooglePlayParser", function() {
 
     it("should parse screenshots", function*() {
         app.screenshots.should.eql(testApp.screenshots)
+    })
+
+    it("should parse publication date", function*() {
+        app.publicationDate.should.eql(testApp.publicationDate)
     })
 
     it("should parse developer email", function*() {
