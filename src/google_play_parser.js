@@ -28,6 +28,12 @@ GooglePlayParser.prototype.parseHtml = function(appHtml) {
             developer.email = href.substr(7);
         }
     })
+
+    var screenshots = $('img.screenshot');
+    var imgs = []
+    screenshots.each(function(i, screenshot) {
+        imgs.push(screenshot.attribs.src)
+    });
     return {
         name: $('div .document-title').text().trim(),
         categories : [$('.category').text().trim()],
@@ -35,6 +41,18 @@ GooglePlayParser.prototype.parseHtml = function(appHtml) {
         isFree: $('.price.buy.id-track-click span').text().trim() == "Install",
         package: $('.details-wrapper.apps').attr('data-docid'),
         description : $('.id-app-orig-desc').html(),
+        installs: $('div[itemprop="numDownloads"]').text().replace(/\s+/g, ''),
+        contentRating: $('div[itemprop="contentRating"]').text().trim(),
+        score: {
+            oneStars:  $('div.rating-bar-container.one span.bar-number').text().trim(),
+            twoStars:  $('div.rating-bar-container.two span.bar-number').text().trim(),
+            threeStars:  $('div.rating-bar-container.three span.bar-number').text().trim(),
+            fourStars:  $('div.rating-bar-container.four span.bar-number').text().trim(),
+            fiveStars: $('div.rating-bar-container.five span.bar-number').text().trim(),
+            count: $('span.reviews-num').text().trim(),
+            total: $('div.score').text().trim()
+        },
+        screenshots: imgs,
         developer: developer 
     }
 }
