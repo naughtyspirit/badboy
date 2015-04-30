@@ -16,7 +16,10 @@ describe("GooglePlayParser", function() {
             isFree: true,
             developer: {
                 name: "Yodo1 Games",
-                email: "gpsupport@yodo1.com"
+                email: "gpsupport@yodo1.com",
+                website: "http://www.yodo1games.com",
+                devUrl: '/store/apps/developer?id=Yodo1+Games',
+                physicalAddress: '1119 – 1120 Building B, Chaowai SOHO 6B Chaoyangmenwai Ave, Chaoyang District, Beijing 100020 People’s Republic of China'
             },
             score: {
                 total: "4.6",
@@ -93,5 +96,17 @@ describe("GooglePlayParser", function() {
 
     it("should parse developer email", function*() {
         app.developer.email.should.eql(testApp.developer.email)
+    })
+
+    it("should parse developer website", function*() {
+        app.developer.website.should.eql(testApp.developer.website)
+    })
+
+    it("should parse developer physical address", function*() {
+        app.developer.physicalAddress.should.eql(testApp.developer.physicalAddress)
+    })
+
+    it("should parse developer website", function*() {
+        app.developer.devUrl.should.eql(testApp.developer.devUrl)
     })
 })

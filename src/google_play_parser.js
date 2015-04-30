@@ -19,8 +19,28 @@ GooglePlayParser.prototype.parse = function* (appPackage) {
 
 GooglePlayParser.prototype.parseHtml = function(appHtml) {
     var $ = Cheerio.load(appHtml)
+    var $website = $('.dev-link:contains("Visit Website")')
+    var devWebsite = null
+
+    if($website.length > 0) {
+        var website = $website[0].attribs.href;
+        var devWebsite = getUrlVars(website)['q']
+    }
+
+    var $physicalAddress = $('div.physical-address')
+    var physicalAddress = ""
+    if($physicalAddress.length > 0) {
+        physicalAddress = $physicalAddress.text().trim()
+    }
+
     var developer = {
-        name: $('.document-subtitle.primary span').html()
+        name: $('.document-subtitle.primary span').html(),
+        isTopDeveloper: $('meta[itemprop="topDeveloperBadgeUrl"]').length > 0 ? true : false,
+        website: devWebsite,
+        physicalAddress: physicalAddress,
+        platform: "Android",
+        devUrl: $('div[itemprop="author"] a.document-subtitle.primary')[0].attribs.href.replace('https://play.google.com',''),
+
     }
     $('.dev-link').each(function(i, item) {
         var href = $(item).attr('href');
@@ -55,6 +75,19 @@ GooglePlayParser.prototype.parseHtml = function(appHtml) {
         screenshots: imgs,
         developer: developer 
     }
+}
+
+function getUrlVars(url)
+{
+    var vars = [], hash;
+    var hashes = url.slice(url.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
 }
 module.exports = GooglePlayParser
 
