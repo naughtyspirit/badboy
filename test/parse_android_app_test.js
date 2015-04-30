@@ -106,7 +106,7 @@ describe("GooglePlayParser", function() {
         app.developer.physicalAddress.should.eql(testApp.developer.physicalAddress)
     })
 
-    it("should parse developer website", function*() {
+    it("should parse developer devUrl", function*() {
         app.developer.devUrl.should.eql(testApp.developer.devUrl)
     })
 })
