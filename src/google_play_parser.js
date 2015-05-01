@@ -58,12 +58,7 @@ GooglePlayParser.prototype.parseHtml = function(appHtml) {
     var price = 0
     var isFree = $('.price.buy.id-track-click span').text().trim() == "Install";
     if(isFree === false) {
-        try {
-            var priceText = $('meta[itemprop="price"]').attr('content')
-            price = Number(priceText.replace(/[^0-9]+/g,""));
-        } catch (e) {
-            price =0;
-        }
+        price = getNumber($('meta[itemprop="price"]').attr('content'));
     }
 
     return {
@@ -78,13 +73,13 @@ GooglePlayParser.prototype.parseHtml = function(appHtml) {
         contentRating: $('div[itemprop="contentRating"]').text().trim(),
         price: price,
         score: {
-            oneStars:  $('div.rating-bar-container.one span.bar-number').text().trim(),
-            twoStars:  $('div.rating-bar-container.two span.bar-number').text().trim(),
-            threeStars:  $('div.rating-bar-container.three span.bar-number').text().trim(),
-            fourStars:  $('div.rating-bar-container.four span.bar-number').text().trim(),
-            fiveStars: $('div.rating-bar-container.five span.bar-number').text().trim(),
-            count: $('span.reviews-num').text().trim(),
-            total: $('div.score').text().trim()
+            oneStars:  getNumber($('div.rating-bar-container.one span.bar-number').text().trim()),
+            twoStars:  getNumber($('div.rating-bar-container.two span.bar-number').text().trim()),
+            threeStars:  getNumber($('div.rating-bar-container.three span.bar-number').text().trim()),
+            fourStars:  getNumber($('div.rating-bar-container.four span.bar-number').text().trim()),
+            fiveStars: getNumber($('div.rating-bar-container.five span.bar-number').text().trim()),
+            count: getNumber($('span.reviews-num').text().trim()),
+            total: Number($('div.score').text().trim())
         },
         screenshots: imgs,
         developer: developer 
@@ -102,6 +97,17 @@ function getUrlVars(url)
         vars[hash[0]] = hash[1];
     }
     return vars;
+}
+
+function getNumber(text) {
+    var number = 0;
+    try {
+        number = Number(text.replace(/[^0-9]+/g,""));
+    } catch (e) {
+        number =0;
+    }
+
+    return number;
 }
 module.exports = GooglePlayParser
 

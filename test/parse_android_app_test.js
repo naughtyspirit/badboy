@@ -23,13 +23,13 @@ describe("GooglePlayParser", function() {
                 physicalAddress: '1119 – 1120 Building B, Chaowai SOHO 6B Chaoyangmenwai Ave, Chaoyang District, Beijing 100020 People’s Republic of China'
             },
             score: {
-                total: "4.6",
-                count: "682,307",
-                oneStars: "18,655",
-                twoStars: "9,336",
-                threeStars: "26,977",
-                fourStars: "89,043",
-                fiveStars: "538,296"
+                total: 4.6,
+                count: 682307,
+                oneStars: 18655,
+                twoStars: 9336,
+                threeStars: 26977,
+                fourStars: 89043,
+                fiveStars: 538296
             },
             installs: "5,000,000-10,000,000",
             contentRating: "Medium Maturity",
