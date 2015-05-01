@@ -51,8 +51,16 @@ describe("GooglePlayParser", function() {
                 "https://lh3.ggpht.com/-NGwF5mqImy_nH4jfoCRxGlK58qQ1AjiA5piaPjxbwEXJj9Lxt9YIHAzNxYewiMUK-A=h310-rw"
             ]
         }
+
+        global.paidTestApp = {
+            isFree: false,
+            price: 275
+        }
+
         var appHtml = Fs.readFileSync('test/data/android_app_source.html').toString()
+        var paidAppHtml = Fs.readFileSync('test/data/android_paid_app_source.html').toString()
         global.app = new GooglePlayParser().parseHtml(appHtml)
+        global.paidapp = new GooglePlayParser().parseHtml(paidAppHtml)
     })
 
     it("should parse name", function*() {
@@ -73,6 +81,11 @@ describe("GooglePlayParser", function() {
 
     it("should parse pricing", function*() {
         app.isFree.should.eql(testApp.isFree)
+    })
+
+    it("should parse paid pricing", function*() {
+        paidapp.isFree.should.eql(paidTestApp.isFree)
+        paidapp.price.should.eql(paidTestApp.price)
     })
 
     it("should parse content rating", function*() {

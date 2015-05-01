@@ -54,16 +54,29 @@ GooglePlayParser.prototype.parseHtml = function(appHtml) {
     screenshots.each(function(i, screenshot) {
         imgs.push(screenshot.attribs.src)
     });
+
+    var price = 0
+    var isFree = $('.price.buy.id-track-click span').text().trim() == "Install";
+    if(isFree === false) {
+        try {
+            var priceText = $('meta[itemprop="price"]').attr('content')
+            price = Number(priceText.replace(/[^0-9]+/g,""));
+        } catch (e) {
+            price =0;
+        }
+    }
+
     return {
         name: $('div .document-title').text().trim(),
         categories : [$('.category').text().trim()],
         icon : $('.cover-image').attr('src'),
-        isFree: $('.price.buy.id-track-click span').text().trim() == "Install",
+        isFree: isFree,
         package: $('.details-wrapper.apps').attr('data-docid'),
         publicationDate: $('div[itemprop="datePublished"]').text().trim(),
         description : $('.id-app-orig-desc').html(),
         installs: $('div[itemprop="numDownloads"]').text().replace(/\s+/g, ''),
         contentRating: $('div[itemprop="contentRating"]').text().trim(),
+        price: price,
         score: {
             oneStars:  $('div.rating-bar-container.one span.bar-number').text().trim(),
             twoStars:  $('div.rating-bar-container.two span.bar-number').text().trim(),
