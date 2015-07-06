@@ -96,10 +96,6 @@ describe("GooglePlayParser", function() {
         app.installs.should.eql(testApp.installs)
     })
 
-    it("should parse installs", function*() {
-        app.installs.should.eql(testApp.installs)
-    })
-
     it("should parse score", function*() {
         app.score.should.eql(testApp.score)
     })

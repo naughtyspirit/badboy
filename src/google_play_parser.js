@@ -19,12 +19,12 @@ GooglePlayParser.prototype.parse = function* (appPackage) {
 
 GooglePlayParser.prototype.parseHtml = function(appHtml) {
     var $ = Cheerio.load(appHtml)
-    var $website = $('.dev-link:contains("Visit Website")')
+    var $website = $('.dev-link:contains("Visit website")')
     var devWebsite = null
 
     if($website.length > 0) {
         var website = $website[0].attribs.href;
-        var devWebsite = getUrlVars(website)['q']
+        devWebsite = getUrlVars(website)['q']
     }
 
     var $physicalAddress = $('div.physical-address')
