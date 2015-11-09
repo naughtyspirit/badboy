@@ -20,23 +20,23 @@ describe("iTunesParser", function() {
     })
 
     it("should parse name", function*() {
-       app.name.should.eql(testApp.name) 
+       app.name.should.eql(testApp.name)
     })
 
     it("should parse icon", function*() {
-       app.icon.should.eql(testApp.icon) 
+       app.icon.should.eql(testApp.icon)
     })
 
     it("should parse category", function*() {
-       app.categories.should.eql(testApp.categories) 
+       app.categories.should.eql(testApp.categories)
     })
 
     it("should parse package", function*() {
-       app.package.should.eql(testApp.package) 
+       app.package.should.eql(testApp.package)
     })
 
     it("should parse pricing", function*() {
-       app.isFree.should.eql(testApp.isFree) 
+       app.isFree.should.eql(testApp.isFree)
     })
 
 })

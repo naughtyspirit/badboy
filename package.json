@@ -1,6 +1,6 @@
 {
   "name": "badboy",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Crawl apps from Google Play & iTunes",
   "main": "src/index.js",
   "scripts": {
