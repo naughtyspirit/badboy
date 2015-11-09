@@ -56,7 +56,7 @@ GooglePlayParser.prototype.parseHtml = function(appHtml) {
     });
 
     var price = 0
-    var isFree = $('.price.buy.id-track-click span').text().trim() == "Install";
+    var isFree = $('.price.buy.id-track-click span').text().trim().indexOf("Install") > -1;
     if(isFree === false) {
         price = getNumber($('meta[itemprop="price"]').attr('content'));
     }
