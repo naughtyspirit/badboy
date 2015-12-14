@@ -52,7 +52,11 @@ GooglePlayParser.prototype.parseHtml = function(appHtml) {
     var screenshots = $('img.screenshot');
     var imgs = []
     screenshots.each(function(i, screenshot) {
-        imgs.push(screenshot.attribs.src)
+        var src = String(screenshot.attribs.src)
+        if(src.indexOf('http') < 0) {
+           src = 'https:' + src
+        }
+        imgs.push(src)
     });
 
     var price = 0
@@ -61,10 +65,14 @@ GooglePlayParser.prototype.parseHtml = function(appHtml) {
         price = getNumber($('meta[itemprop="price"]').attr('content'));
     }
 
+    var icon = $('.cover-image').attr('src')
+    if(icon.indexOf('http') < 0) {
+        icon = 'https:' + icon
+    }
     return {
         name: $('div .document-title').text().trim(),
         categories : [$('.category').text().trim()],
-        icon : $('.cover-image').attr('src'),
+        icon : icon,
         isFree: isFree,
         package: $('.details-wrapper.apps').attr('data-docid'),
         publicationDate: $('div[itemprop="datePublished"]').text().trim(),

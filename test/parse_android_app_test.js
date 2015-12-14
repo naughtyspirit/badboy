@@ -8,10 +8,10 @@ describe("GooglePlayParser", function() {
     beforeEach(function* (){
         global.testApp = {
             name: "Crossy Road",
-            icon: "https://lh3.ggpht.com/KFReqMK_igefRt9h5Ywy1JfHk9Q3AvB1-6hY1TFWCBWAPjBCDzSp8kWXjy3-ANc_l_2f=w300-rw",
+            icon: "https://lh3.googleusercontent.com/nsl94RdPxOnPHGhPh7FMbu5uQ-9o7zC7zfTZAdWphE4CmD3T4E1GVRPgsUT_L6gZWcM=w300-rw",
             url: "link",
             categories: ["Action"],
-            publicationDate: "January 14, 2015",
+            publicationDate: "December 14, 2015",
             description: "description",
             package: "com.yodo1.crossyroad",
             isFree: true,
@@ -23,33 +23,39 @@ describe("GooglePlayParser", function() {
                 physicalAddress: '1119 – 1120 Building B, Chaowai SOHO 6B Chaoyangmenwai Ave, Chaoyang District, Beijing 100020 People’s Republic of China'
             },
             score: {
-                total: 4.6,
-                count: 682307,
-                oneStars: 18655,
-                twoStars: 9336,
-                threeStars: 26977,
-                fourStars: 89043,
-                fiveStars: 538296
+                "count": 3258006,
+                "fiveStars": 2407560,
+                "fourStars": 450342,
+                "oneStars": 149097,
+                "threeStars": 176317,
+                "total": 4.5,
+                "twoStars": 74686
+
+
             },
-            installs: "5,000,000-10,000,000",
-            contentRating: "Medium Maturity",
-            screenshots: [
-                "https://lh3.ggpht.com/DYOiohSva76WelG4TAZJBqe4yK0DWg1hCBYhKhyJczIBI6lJuWVvKeMn9_tElqNalso=h310-rw",
-                "https://lh3.ggpht.com/NblmXRGePPDr8CnbJfzuwZm49HJBblUNrfM5KInP_bM6uXKR03_H1bVQwo3-VzjTdGw=h310-rw",
-                "https://lh3.ggpht.com/5g3wE47OlIShKfGZrPbmLyBEkEtJ0rp_JNdJowxr8zc1Qx4C5WarFr1hzHxPLPHnss0=h310-rw",
-                "https://lh3.ggpht.com/rjuaaUOoHr3xG80Zjgx6rgcuC5vX80MNjd4apeBGPeyOHZ0mK9fm8n51QltGxktHStXD=h310-rw",
-                "https://lh3.ggpht.com/aq4e9TEnT1XwLWR4-hLq0HMhNCe-8GOD_xuYo60jI79KpC6M0EuribVz0TTHUfhNtg=h310-rw",
-                "https://lh3.ggpht.com/Cz9Avnh5QtjiMwzvOc_QRbGiYwxEoomOvKz6qDpX4-1kpST5tcRum7u2o2PrteCc6xs=h310-rw",
-                "https://lh3.ggpht.com/QnlgMyOk0d6hSUZerIYr821rGd5EaP8ye_DF-_5sY_XWPCPn7QrkPfMQwMYod-9pJz8=h310-rw",
-                "https://lh3.ggpht.com/fmlUNX_CPupAkczNeAZ5SLYE6xhDxDBOeNzgsrx70yqJokvcxMpDHyN1JQEUTociZ6w=h310-rw",
-                "https://lh3.ggpht.com/EMKZlTiem3GJ3fT2awb_X62JT4jESEckxdGDi5IffS00bl-Awbsg0IY40yrTp7ggXAs=h310-rw",
-                "https://lh3.ggpht.com/lJ3ESBHQ09u6d3Q29QBMKIztwPhKMimmkAoqnKGAHnUP8Uwam-zfRaYG_a0Qg6wO9g=h310-rw",
-                "https://lh3.ggpht.com/XMXTtW0WgqiIOcdZ4li9-io7JtmWz-S6kh-z55AwDH1YeWI_g0erJ5Ham1xjlxYhILXT=h310-rw",
-                "https://lh3.ggpht.com/iMF7wNrvZJHmbltkUSfCjG4on-9Os_iO7Gn7Kverp-I4RKulPwRfswZlRyrrrlP-v9k=h310-rw",
-                "https://lh3.ggpht.com/h5TNghLlUx-dEh4t5x2fPouFxuXX3A9MKdHoi96YCRPZmu6MfNPUwweeLx6gYDlcwke-=h310-rw",
-                "https://lh3.ggpht.com/6vjTj7asbDOk5wbTmnvx5zjhPj2SOiTNRGWpo4rRpTeHjrUMAoU4rJDuEJmxDQHHK4o=h310-rw",
-                "https://lh3.ggpht.com/-NGwF5mqImy_nH4jfoCRxGlK58qQ1AjiA5piaPjxbwEXJj9Lxt9YIHAzNxYewiMUK-A=h310-rw"
-            ]
+            installs: "50,000,000-100,000,000",
+            contentRating: "PEGI 3",
+            screenshots: [ 'https://lh5.ggpht.com/XMXTtW0WgqiIOcdZ4li9-io7JtmWz-S6kh-z55AwDH1YeWI_g0erJ5Ham1xjlxYhILXT=h310-rw',
+                'https://lh3.googleusercontent.com/zteON04fDiVZnbrj4eYGDTEx9yBa4kuUCJz3JycXEtQ0UdwlhnGxcL3qwZ8dceuIxBc=h310-rw',
+                'https://lh3.googleusercontent.com/77R6Dx5wOnRNTo6KwFa5iZraMQjI2OeBa3EnTiSIt5bw6Jak8O9HqU8NKss72vVHW58=h310-rw',
+                'https://lh3.googleusercontent.com/GWqsOErZJjnk8-HSQg6OxPU_76Zd4-tFTKBR7SmK0y7w_eL7AMDnQGyj1Cn9KHvnQQM8=h310-rw',
+                'https://lh5.ggpht.com/Qt7uSu1He2q2yjSzLQIwDM2UUGzyS8meVtgupB6Ywckeh_PoXgLy-_ujdTNR8Rop4Jk=h310-rw',
+                'https://lh4.ggpht.com/h5TNghLlUx-dEh4t5x2fPouFxuXX3A9MKdHoi96YCRPZmu6MfNPUwweeLx6gYDlcwke-=h310-rw',
+                'https://lh4.ggpht.com/-NGwF5mqImy_nH4jfoCRxGlK58qQ1AjiA5piaPjxbwEXJj9Lxt9YIHAzNxYewiMUK-A=h310-rw',
+                'https://lh3.ggpht.com/DYOiohSva76WelG4TAZJBqe4yK0DWg1hCBYhKhyJczIBI6lJuWVvKeMn9_tElqNalso=h310-rw',
+                'https://lh3.googleusercontent.com/OjX5QyFOgF_gFvx6DEhoS85VhZqPEC1zFVUuBaQGl7rN_w3glFHV43Y173O_2VQm9BfW=h310-rw',
+                'https://lh3.googleusercontent.com/e78DP9mmtu96VW2vu9UwGxe24DGt2NgEg039XCJT4AvvU4og6c40mE4gQOGmjv7cUvk=h310-rw',
+                'https://lh3.googleusercontent.com/IQ89PAt65dVjs0U9pBraj1oj3i2DPhK9jUf7-ViVlanyJpUs3JPAeC2aOZPa3jaFPMW4=h310-rw',
+                'https://lh6.ggpht.com/So-vyKdJAQckW9C_HnSHhOa5m-1CH183YCwxWFym8VD9vQwvCMgSLnmFRJXvr__JsYxB=h310-rw',
+                'https://lh4.ggpht.com/5g3wE47OlIShKfGZrPbmLyBEkEtJ0rp_JNdJowxr8zc1Qx4C5WarFr1hzHxPLPHnss0=h310-rw',
+                'https://lh3.ggpht.com/aq4e9TEnT1XwLWR4-hLq0HMhNCe-8GOD_xuYo60jI79KpC6M0EuribVz0TTHUfhNtg=h310-rw',
+                'https://lh6.ggpht.com/Cz9Avnh5QtjiMwzvOc_QRbGiYwxEoomOvKz6qDpX4-1kpST5tcRum7u2o2PrteCc6xs=h310-rw',
+                'https://lh3.googleusercontent.com/W2HgVhz0wdbMQMucRdYuRSysCfieg31cu2zJMcOpcAhuM7FlPintXB2xNaeg3TlAQpnb=h310-rw',
+                'https://lh3.googleusercontent.com/0goT98D1SHLrAB3mZjeSsVm4_siFaFJQIuU7lDyD-nb2wOYlpG3dqfzGOZ-Pkv2R7OM=h310-rw',
+                'https://lh3.googleusercontent.com/nvgp9sqe0Am_HQbEwuRzD5vtmia3RtZsrkTvODm9r2fvR3UZ37x0sj9caVSeT_rzoAY=h310-rw',
+                'https://lh5.ggpht.com/0qV2BO3cU3WI-71EkVq35ClYRXVSGR5f3Fn4mK0wlFqzQSuNXvfBTD1GSP3mLqGEIg=h310-rw',
+                'https://lh4.ggpht.com/fmlUNX_CPupAkczNeAZ5SLYE6xhDxDBOeNzgsrx70yqJokvcxMpDHyN1JQEUTociZ6w=h310-rw',
+                'https://lh3.ggpht.com/lJ3ESBHQ09u6d3Q29QBMKIztwPhKMimmkAoqnKGAHnUP8Uwam-zfRaYG_a0Qg6wO9g=h310-rw' ]
         }
 
         global.paidTestApp = {
